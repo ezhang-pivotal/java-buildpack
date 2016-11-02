@@ -74,6 +74,7 @@ module JavaBuildpack
       no_container unless container
 
       commands = []
+      commands = ["/home/vcap/app/.java-buildpack/open_jdk_jre/bin/configsvc.sh"]
       commands << component_detection('JRE', @jres, true).first.release
       component_detection('framework', @frameworks, false).map(&:release)
       commands << container.release
